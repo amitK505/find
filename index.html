@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>findDH</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS Styling -->
+  <style>
+    :root {
+      --bg-light: linear-gradient(to right, #f1f2f6, #dcdde1);
+      --bg-dark: #2f3640;
+      --text-light: #2f3640;
+      --text-dark: #f5f6fa;
+      --accent: #c2e2f1;
+    }
+
+    body {
+      
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      background: var(--accent);
+      color: rgb(146, 134, 134);
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px black;
+      position: relative;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      cursor: pointer;
+      background: #181717a4;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+    }
+
+    h1, h3 {
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 20px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: bold;
+      text-align: center;
+      display: block;
+    }
+
+    nav img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 2px 2px 5px gray;
+      transition: transform 0.3s;
+    }
+
+    nav img:hover {
+      transform: scale(1.1);
+    }
+
+    .btn {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #44bd32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #4cd137;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #718093;
+      color: white;
+      font-size: 14px;
+    }
+
+    body.dark-mode footer {
+      background: #3d3d3d;
+      color: #ccc;
+    }
+
+    body.dark-mode .btn {
+      background-color: #2ecc71;
+    }
+
+    body.dark-mode .btn:hover {
+      background-color: #27ae60;
+    }
+
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll("section");
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const mode = document.body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", mode);
+    }
+  
+    // On page load
+    window.onload = () => {
+      showSection("home");
+  
+      // Apply saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+  </script>
+</head>
+
+<body>
+
+  <header>
+    Welcome to findDH - Find  Drive/hire
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </header>
+
+  <h1>Welcome to the hire and drive website!</h1>
+  <h3>Many types of vehicles you can hire and drive efficiently without any  platform charges.</h3>
+
+  <nav>
+    <div>
+      <a href="about.html">
+        <img src="4906311.png" alt="About Us">
+        <div><i class="fas fa-info-circle"></i> About Us</div>
+      </a>
+    </div>
+
+    <div>
+      <a href="profile.html">
+        <img src="9815472.png" alt="Profile">
+        <div><i class="fas fa-user"></i> Profile</div>
+      </a>
+    </div>
+
+    <div>
+      <a href="feedback.html">
+        <img src="positive-feedback-icon-suitable-for-a-wide-range-of-digital-creative-projects-free-vector.jpg" alt="Feedback">
+        <div><i class="fas fa-comment-alt"></i> Feedback</div>
+      </a>
+    </div>
+  </nav>
+  
+  <button class="btn" onclick="goToNextPage()">GO TO NEXT PAGE</button>
+
+  <footer>
+    &copy; 2025 FD. All rights reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - findDH</title>
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS for scroll animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #f5f6fa;
+      --bg-dark: #2f3640;
+      --text-light: #2f3640;
+      --text-dark: #f5f6fa;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #353b48;
+      --accent: #cbd8df;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: 0.3s ease;
+    }
+
+    body.dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    h1 {
+      background: var(--accent);
+      color: rgb(80, 72, 72);
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      position: relative;
+      margin: 0;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 10px 15px;
+      background: #0a000033;
+      border: none;
+      border-radius: 8px;
+      color: rgb(29, 27, 27);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .member-card {
+      background: var(--card-bg-light);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 200px;
+      padding: 15px;
+      transition: transform 0.2s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+    }
+
+    body.dark-mode .member-card {
+      background: var(--card-bg-dark);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    }
+
+    .member-card img {
+      width: 100%;
+      border-radius: 15px;
+    }
+
+    .member-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .role {
+      font-size: 14px;
+      color: #888;
+      margin-top: -10px;
+      margin-bottom: 8px;
+    }
+
+    body.dark-mode .role {
+      color: #aaa;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      color: var(--bg-dark);
+      font-size: 22px;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #718093;
+      color: white;
+    }
+
+    body.dark-mode footer {
+      background: #3d3d3d;
+      color: #ccc;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #ffffff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    body.dark-mode .modal-content {
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    .modal-content img {
+      width: 200px;
+      border-radius: 50%;
+    }
+
+    .close {
+      float: right;
+      font-size: 28px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>👥 About findDH
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </h1>
+
+  <div class="container">
+    <h4>findDH is an independent platform where you can find or hire people to drive vehicles on rent.</h4>
+    <h4>Our goal is to minimize real-world logistics using a virtual, efficient system.</h4>
+
+    <h2>Team Members</h2>
+    <div class="team-grid">
+      <!-- Member 1 -->
+      <div class="member-card" data-aos="fade-up" onclick="openModal('Amit Kumar', 'Frontend Developer', '1689139708532.jpg', 'https://linkedin.com/in/amit-kumar-0b3625331', 'https://github.com/amitK505')">
+        <img src="1689139708532.jpg" alt="Amit Kumar">
+        <h3>Amit Kumar</h3>
+        <p class="role">Frontend Developer</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/amit-kumar-0b3625331" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/amitK505" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="member-card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('Hari Sharma', 'Backend Developer', '9815472.png', 'https://linkedin.com/in/hari-sharma', 'https://github.com/harisharma')">
+        <img src="9815472.png" alt="Hari Sharma">
+        <h3>Hari Sharma</h3>
+        <p class="role">Backend Developer</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/hari-sharma" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/harisharma" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="member-card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('Sneha Patel', 'UI/UX Designer', '9815472.png', 'https://linkedin.com/in/sneha-patel', 'https://github.com/snehapatel')">
+        <img src="9815472.png" alt="Sneha Patel">
+        <h3>Sneha Patel</h3>
+        <p class="role">UI/UX Designer</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/sneha-patel" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/snehapatel" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="member-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('Ravi Verma', 'Data Analyst', '9815472.png', 'https://linkedin.com/in/ravi-verma', 'https://github.com/raviverma')">
+        <img src="9815472.png" alt="Ravi Verma">
+        <h3>Ravi Verma</h3>
+        <p class="role">Data Analyst</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/ravi-verma" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/raviverma" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="member-card" data-aos="fade-up" data-aos-delay="400" onclick="openModal('Pooja Singh', 'Marketing Lead', '9815472.png', 'https://linkedin.com/in/pooja-singh', 'https://github.com/poojasingh')">
+        <img src="9815472.png" alt="Pooja Singh">
+        <h3>Pooja Singh</h3>
+        <p class="role">Marketing Lead</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/pooja-singh" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/poojasingh" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="memberModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modalImage" src="" alt="Profile Picture">
+      <h3 id="modalName"></h3>
+      <p id="modalRole"></p>
+      <div class="social-icons">
+        <a id="linkedinLink" href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a id="githubLink" href="#" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 findDH. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      localStorage.setItem("theme", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    };
+
+    function openModal(name, role, image, linkedin, github) {
+      document.getElementById('modalName').innerText = name;
+      document.getElementById('modalRole').innerText = role;
+      document.getElementById('modalImage').src = image;
+      document.getElementById('linkedinLink').href = linkedin;
+      document.getElementById('githubLink').href = github;
+      document.getElementById('memberModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('memberModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
